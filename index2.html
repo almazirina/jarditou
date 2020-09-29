@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>2. Javascript.</title>
+</head>
+
+<body>
+
+  <h1>2. JavaScript.</h1>
+
+  <h3>1. Tableau des valeurs numérique.</h3>
+  <input type="button" id="abc" value="Click" onclick="valeurNum()">
+  <div id="val"></div>
+
+  <h3>2. Coucou.</h3>
+
+  <h3>3. Le bouton Contrôle.</h3>
+  <div id="label">Saisissez un texte puis pressez le bouton "Controle"</div>
+  <input id="textBox">
+  <input type="button" id="but" value="Controle" onclick="Controle()">
+
+  <h3>4. Nombre Magique.</h3>
+  <div id="label1">Entrez votre proposition</div>
+  <input id="textBox1">
+  <input type="button" id="button1" value="Verifier" onclick="verif()">
+
+  <h3>5. Formulaire.</h3>
+  <button type="button" id="" onclick="Form()">Click</button>
+
+  <script>
+    // 1. Tableau des valeurs numérique.
+
+    function valeurNum() {
+      var x;
+      var table = [];
+      var num = 0;
+      var moy = 0;
+      var somme = 0;
+      do {
+        x = parseInt(prompt("Saisissez une valeur numérique"));
+        somme = somme + x;
+        num++;
+        console.log("la valeur est: " + x + ";numero " + num)
+      } while (x != "0");
+      console.log("le nombre des valeurs est : " + (num - 1) + ".La somme est : " + somme)
+      
+      if (somme > 0) {
+        moy = somme / (num - 1);
+        console.log("la moyenne est " + moy);
+      } else {
+        alert("Aucune valeur n'a ete entree")
+      }
+      document.getElementById("val").innerHTML = "Le nombre de valeurs saisies est " + (num - 1) + ", la somme est " + somme + " et la moyenne est " + moy + ".";
+
+    }
+
+
+
+    // 3.Le bouton Contrôler. 
+
+    var element = document.getElementById("but");
+    element.addEventListener("click", function Controle() {
+      var reponce = document.getElementById("textBox").value;
+      alert("Vous avez saisi: " + reponce);
+    })
+
+    // 4. Nombre magique
+
+    var magic = getRandom();
+    var reponce;
+
+    function getRandom() {
+      return ((Math.random() * 100).toFixed(0));
+    }
+
+    function verif() {
+      console.log(magic);
+      reponce = parseInt(document.getElementById("textBox1"));
+
+      if (reponce == magic) {
+        document.getElementById("text").innerHTML = "Bravo!";
+      } else {
+        if (reponce < magic) {
+          document.getElementById("text").innerHTML = "Trop petit!";
+        } else
+          document.getElementById("text").innerHTML = "Trop grand!";
+      }
+    }
+  </script>
+</body>
+
+</html>
