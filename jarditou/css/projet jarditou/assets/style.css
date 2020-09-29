@@ -1,0 +1,94 @@
+/* base */
+
+aside {
+    float: right;
+    padding: 1%;
+    display: none;
+    padding-bottom: 5%;
+    width: 33%;
+    height: 34.37rem;
+    background-color: grey;
+    color: black;
+    float: right;
+    position: static;
+    margin-bottom: 2%;
+}
+
+section {
+    float: left;
+    position:static;
+    width: 63%;
+    height: auto;
+}
+
+#promotion {
+    position: static;
+    width: 100%;
+}
+
+.menuhaut,
+.menubas {
+
+    float: left;
+    position: static;
+    width: 100%;
+    background-color: black;
+    color: white;
+    list-style: none;
+    padding-bottom: 15px;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menuhaut nav ul li a,
+.menubas nav ul li a {
+    float: left;
+    list-style: none;
+}
+
+.menuhaut nav ul li a:visited,
+.menubas nav ul li a:visited {
+    color: white;
+}
+
+#logo {
+    float: left;
+    position: static;
+    width: 20%;
+}
+
+#titre_droite {
+    position: static;
+    float: right;
+    width: 20%;
+}
+
+html {
+    font-size: 100%;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    aside {
+        display: block;
+    }
+
+
+    .menuhaut nav ul li,
+    .menubas nav ul li {
+
+        display: block;
+    }
+
+
+    blockquote {
+        font-size: 20px;
+    }
+
+    section{
+        display: block; 
+     }
+}
