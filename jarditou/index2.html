@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>2. Javascript.</title>
+</head>
+
+<body>
+
+  <h1>2. JavaScript.</h1>
+
+  <h3>1. Tableau des valeurs numérique.</h3>
+  <input type="button" id="abc" value="Click" onclick="valeurNum()">
+
+  <h3>2. Coucou.</h3>
+
+  <h3>3. Le bouton Contrôler.</h3>
+  <div id="label1">Saisissez un texte puis pressez le bouton "Controle"</div>
+  <input id="textBox" value="">
+  <input type="button" id="but" value="Controler" onclick="Controle()">
+
+  <h3>4. Nombre Magique.</h3>
+  <div id="text">Entrez votre proposition</div>
+  <input id="textBox1" value="">
+  <input type="button" id="button1" value="Verifier" onclick="verif()">
+
+  <h3>5. Formulaire.</h3>
+  <button type="button" id="" onclick="Form()">Click</button>
+
+  <script>
+    // 1. Tableau des valeurs numérique.
+
+    function valeurNum() {
+      var x;
+      var table = [];
+      var num = 0;
+      var moy = 0;
+      var somme = 0;
+      do {
+        x = prompt("Saisissez une valeur numérique");
+        somme = somme + parseInt(x);
+        num++;
+        console.log("la valeur est: " + x + ";numero " + num)
+      } while (x != "0");
+      console.log("la somme est : " + somme);
+
+      if (somme > 0) {
+        moy = somme / num;
+        console.log("la moyenne est " + moy);
+      } else {
+        alert("Aucune valeur n'a ete entree")
+      }
+
+    }
+
+    // 3.Le bouton Contrôler. 
+
+    var element = document.getElementById("but");
+    element.addEventListener("click", function Controle() {
+      var reponce = document.getElementById("textBox").value;
+      alert("Vous avez saisi: " + reponce);
+    })
+
+    // 4. Nombre magique
+
+    var magic = getRandom();
+    var reponce;
+
+    function getRandom() {
+      return ((Math.random() * 100).toFixed(0));
+    }
+
+    function verif() {
+      console.log(magic);
+      reponce = parseInt(document.getElementById("textBox1"));
+
+      if (reponce == magic) {
+        document.getElementById("text").innerHTML = "Bravo!";
+      } else {
+        if (reponce < magic) {
+          document.getElementById("text").innerHTML = "Trop petit!";
+        } else
+          document.getElementById("text").innerHTML = "Trop grand!";
+      }
+    }
+  </script>
+</body>
+
+</html>

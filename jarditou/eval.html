@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Javascript.</title>
+</head>
+
+<body>
+    <h2>Exercice 1 - Calcul du nombre.</h2>
+    <button type="button" id="calcul" onclick="Calcul()">Click</button>
+
+    <h2>Exercice 2 - Table de multiplication.</h2>
+    <button type="button" id="multipl" onclick="TableMultiplication()">Click</button>
+    <div id="texte"></div>
+
+
+    <h2>Exercice 3 - Recherche d'un prénom.</h2>
+    <button type="button" id="prenom" onclick="RecherchePrenom()">Click</button>
+    <div id="pren"></div>
+
+    <h2>Exercice 4 - Total d'une commande.</h2>
+    <button type="button" id="commande" onclick="TotalCommande()">Click</button>
+    <div id="comm"></div>
+
+    <h2>Exercice 5 - Vérification d'un formulaire.</h2>
+    <button type="button" id="jard" onclick=>Click</button>
+
+    <script>
+        function Calcul() {
+            var age = 0;
+            let jeune = 0;
+            let moyen = 0;
+            let vieux = 0;
+
+            while (age < 100) {
+                var age = parseInt(prompt("Entrez votre age. S'arrete en 100 ans et plus."));
+
+                if (age < 20) {
+                    console.log(age);
+                    jeune++;
+                } else if (age > 40) {
+                    console.log(age);
+                    vieux++;
+                } else {
+                    console.log(age);
+                    moyen++;
+                }
+
+
+            };
+            window.alert("Le nombre des jeunes est " + jeune + ",des moyens est " + moyen + " et des vieux est " +
+                vieux);
+        }
+
+        function TableMultiplication() {
+            var num = parseInt(prompt("Entrez un nombre. J'affiche la table de ce nombre."));
+            document.getElementById("texte").innerHTML = ("Table de multiplication par " + num + "<br/>");
+
+            for (i = 1; i <= 10; i++) {
+                res = i * num;
+                document.getElementById("texte").innerHTML = document.getElementById("texte").innerHTML + num + " * " +
+                    i + " = " + res + "<br/>";
+            }
+
+        }
+
+        function RecherchePrenom() {
+
+
+            var tab = ["Audrey", "Aurélien", "Flavien", "Jérémy", "Laurent", "Melik", "Nouara", "Salem", "Samuel",
+                "Stéphane"
+            ];
+            console.log("prenoms: " + tab.join());
+            var prenom = window.prompt("Saisissez un prénom.");
+            var pos = tab.indexOf(prenom);
+
+            if (tab.indexOf(prenom) === -1) {
+                window.alert("Il n'y a pas de ce prénom dans le tableau.");
+                console.log("element doesn't exist");
+
+            } else {
+                var x = tab.splice(pos, 1);
+                x = tab.push("    !");
+                document.getElementById("pren").innerHTML = tab.join();
+                console.log("prenoms: " + tab.join());
+            }
+
+        }
+
+        function TotalCommande() {
+            var PU = parseInt(window.prompt("Saisissez le prix unitaire d'un produit ."));
+
+            var QTECOM = parseInt(window.prompt("Saissisez la quantité commandée ."));
+
+            var TOT = PU * QTECOM;
+            var PTR;
+            var PORT;
+            var PAP;
+            var REM;
+
+            if (TOT > 200) {
+                REM = TOT * 0.1;
+                PTR = TOT - REM;
+                console.log("REM et PTR sont égal à "+ REM, PTR);
+            } else if (TOT < 100) {
+                REM = 0;
+                PTR = TOT;
+                console.log("REM et PTR sont égal à "+ REM, PTR);
+            } else {
+                REM = TOT * 0.05;
+                PTR = TOT - REM;
+                console.log("REM et PTR sont égal à "+ REM, PTR);
+            }
+
+            if (PTR >= 500) {
+                PORT = 0;
+                PAP = PTR;
+                console.log("PORT et PAP sont égal à " + PORT, PAP);
+            } else {
+                PORT = PTR * 0.02;
+                PAP = PTR + PORT;
+                console.log("PORT et PAP sont égal à " + PORT,PAP);
+                if (PORT < 6) {
+                    PORT = 6;
+                    PAP = PTR + 6;
+                    console.log("PORT et PAP sont égal à "+ PORT,PAP);
+                }
+            }
+            document.getElementById("comm").innerHTML = "Le prix à payer est "+PAP+"€, la remise est "+REM+"€ et le port est "+PORT+"€.";
+        }
+
+    </script>
+</body>
+
+</html>
